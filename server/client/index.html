@@ -105,7 +105,44 @@ margin-top:50px;
 
 </head>
 <body>
+<div>
+  <h2>Login</h2>
+  <input id="email" placeholder="Email">
+  <input id="password" placeholder="Password" type="password">
 
+  <button onclick="login()">Login</button>
+  <button onclick="signup()">Sign Up</button>
+</div>
+
+<script>
+const API_URL = "YOUR_RENDER_LINK";
+
+async function signup(){
+  await fetch(API_URL + "/signup", {
+    method:"POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify({
+      email: email.value,
+      password: password.value
+    })
+  });
+  alert("User created");
+}
+
+async function login(){
+  const res = await fetch(API_URL + "/login", {
+    method:"POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify({
+      email: email.value,
+      password: password.value
+    })
+  });
+
+  const data = await res.json();
+  alert("Login success");
+}
+      </script>
 <nav>
 <div class="logo">BIG B STUDY HUB</div>
 
