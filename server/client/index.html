@@ -260,6 +260,20 @@ Founder: OMOFUMA OSARIEMEN BRIGHT
 </p>
 
 </footer>
+<script>
+const API_URL = "https://bigb-study-hub.onrender.com";
 
+async function testAPI(){
+  try {
+    const res = await fetch(API_URL);
+    const data = await res.text();
+    console.log("Backend says:", data);
+  } catch (error) {
+    console.log("Error connecting to backend:", error);
+  }
+}
+
+testAPI();
+</script>
 </body>
   </html>
